@@ -17,6 +17,12 @@ public class WebConfiguration {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**");
             }
+
+//			@Override
+//			public void addViewControllers(ViewControllerRegistry registry) {
+//				registry.addViewController("/").setViewName("login");
+//			}
+
         };
     }
 }

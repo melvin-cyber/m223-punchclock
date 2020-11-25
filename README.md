@@ -1,13 +1,16 @@
-# M223: Punchclock
-Dies ist eine Beispielapplikation für das Modul M223.
+# Punchclock - Zeiterfassung
 
-## Loslegen
-Folgende Schritte befolgen um loszulegen:
-1. Sicherstellen, dass JDK 12 installiert und in der Umgebungsvariable `path` definiert ist.
-1. Ins Verzeichnis der Applikation wechseln und über die Kommandozeile mit `./gradlew bootRun` oder `./gradlew.bat bootRun` starten
-1. Unittest mit `./gradlew test` oder `./gradlew.bat test` ausführen.
-1. Ein ausführbares JAR kann mit `./gradlew bootJar` oder `./gradlew.bat bootJar` erstellt werden.
+## Was ist Punchclock
+* Punchclock ist eine Webanwendung, mit der man Zeiten für diverse AUfträge erfassen kann.
 
-Folgende Dienste stehen während der Ausführung im Profil `dev` zur Verfügung:
-- REST-Schnittstelle der Applikation: http://localhost:8081
-- Dashboard der H2 Datenbank: http://localhost:8081/h2-console
+## Bedingungen zur ausführung der Applikation sind folgende:
+* Es wird mindestens JDK 11 benötigt JDK 12 ist auch akzeptabel.
+* Gradle muss installiert und verfügbar sein.
+
+## Starten
+1.  Im Verzeichnis der Applikation `./gradlew bootRun` (auf Unix-Systemen) oder `./gradlew.bat bootRun` (auf Windows-Systemen) ausführen;
+2.  Im Browser auf http://localhost:8081/index.html aufrufen, nachdem gradle gestartet wurde;
+3.  Nun muss ein neuer Benutzer hinzugefügt werden;
+4.  mit dem angelegten User sollte man sich anmelden;
+5.  Das verwalten von Benutzern und Einträgen sollte nun möglich sein;
+6.  in der Date dump.sql findet sich ein Skript zum Einfügen von Beispieldaten
