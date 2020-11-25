@@ -8,12 +8,9 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-public class Entry {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@javax.persistence.Entity
+@Table()
+public class Entry extends Entity {
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
@@ -25,13 +22,16 @@ public class Entry {
     @Column(nullable = false)
     private LocalDateTime checkOut;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn()
+    private ApplicationUser user;
 
-    public void setId(Long id) {
-        this.id = id;
+    public Entry(LocalDateTime checkIn, LocalDateTime checkOut, ApplicationUser user) {
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.user = user;
     }
+    public Entry() {}
 
     public LocalDateTime getCheckIn() {
         return checkIn;
@@ -47,5 +47,13 @@ public class Entry {
 
     public void setCheckOut(LocalDateTime checkOut) {
         this.checkOut = checkOut;
+    }
+
+    public void setUser(ApplicationUser user) {
+        this.user = user;
+    }
+
+    public ApplicationUser user() {
+        return user;
     }
 }
